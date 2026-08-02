@@ -5,10 +5,10 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const heroImages = [
-  { id: 'pool', src: '/images/bella-wellness-cam1a.webp', title: 'Tranquil Recovery Pool', tag: 'RECOVERY' },
-  { id: 'sanctuary', src: '/images/bella-wellness-cam2a.webp', title: 'Ohana Hills Sanctuary', tag: 'SANCTUARY' },
+  { id: 'pool', src: '/images/bella-wellness-cam1a.webp', title: 'Tranquil Recovery Pool', tag: 'RECOVERY', mobilePosition: '28% center' },
+  { id: 'sanctuary', src: '/images/bella-wellness-cam2a.webp', title: 'Ohana Hills Sanctuary', tag: 'SANCTUARY', mobilePosition: '28% center' },
   { id: 'pilates', src: '/images/bella-wellness-cam6.webp', title: 'Private Movement Studio', tag: 'FITNESS' },
-  { id: 'contour', src: '/images/bella-wellness-cam3a.webp', title: 'InLine Body Technology', tag: 'SCULPTING' },
+  { id: 'contour', src: '/images/bella-wellness-cam3a.webp', title: 'InLine Body Technology', tag: 'SCULPTING', mobilePosition: '55% center' },
   { id: 'beauty', src: '/images/bella-wellness-cam7.webp', title: 'Bespoke Beauty Salon', tag: 'BEAUTY' },
 ];
 
@@ -16,8 +16,19 @@ const SLIDE_INTERVAL = 6000;
 
 export default function HeroSection() {
   const [activeIdx, setActiveIdx] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const count = heroImages.length;
+
+  // Some hero photos are framed for a wide desktop crop and lose their subject
+  // entirely on a narrow mobile crop — mobilePosition compensates below `md`.
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   const clearTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
@@ -90,6 +101,7 @@ export default function HeroSection() {
               alt={active.title}
               fill
               className="object-cover"
+              style={{ objectPosition: isMobile && active.mobilePosition ? active.mobilePosition : 'center' }}
               sizes="100vw"
               priority
             />

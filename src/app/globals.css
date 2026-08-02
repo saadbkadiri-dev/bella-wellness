@@ -71,6 +71,17 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
+/* Slow drifting pan for the wave texture background — used sparingly (About page only)
+   for a very subtle sense of movement, not a generic animated gradient. */
+@keyframes textureDrift {
+  from { background-position: 0px 0px; }
+  to { background-position: 160px 160px; }
+}
+
+.texture-drift {
+  animation: textureDrift 90s linear infinite;
+}
+
 /* Custom Editorial Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
