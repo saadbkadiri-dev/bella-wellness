@@ -92,6 +92,28 @@ html.dark header {
   border-color: rgba(184, 175, 159, 0.2) !important;
 }
 
+/* Header & Footer Logo & Text Visibility in Dark Mode */
+html.dark header img,
+html.dark footer img {
+  filter: brightness(0) invert(0.95) !important;
+}
+
+html.dark footer {
+  background-color: #141210 !important;
+  color: #F6F3EF !important;
+  border-color: rgba(184, 175, 159, 0.2) !important;
+}
+
+html.dark footer a,
+html.dark header a {
+  color: #F6F3EF !important;
+}
+
+html.dark footer a:hover,
+html.dark header a:hover {
+  color: #B8AF9F !important;
+}
+
 html.dark ::-webkit-scrollbar-track {
   background: #141210;
 }
