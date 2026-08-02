@@ -87,6 +87,11 @@ html.dark .border-\[\#8C8275\]\/20 {
   border-color: rgba(184, 175, 159, 0.2) !important;
 }
 
+html.dark header {
+  background-color: rgba(20, 18, 16, 0.95) !important;
+  border-color: rgba(184, 175, 159, 0.2) !important;
+}
+
 html.dark ::-webkit-scrollbar-track {
   background: #141210;
 }
