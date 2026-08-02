@@ -79,15 +79,6 @@ export default function AboutPage() {
           style={textureStyle}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <div className="lg:col-span-5 relative h-[360px] md:h-[420px] rounded-2xl overflow-hidden border border-black/5">
-              <Image
-                src="/images/bella-wellness-cam1a.webp"
-                alt="Bella Wellness Space"
-                fill
-                className="object-cover"
-              />
-            </div>
-
             <div className="lg:col-span-7 space-y-6 text-left">
               <span className="text-[13px] uppercase tracking-[0.25em] text-[#8C8275] font-sans font-semibold">
                 02 &bull; ENVIRONMENT
@@ -98,6 +89,15 @@ export default function AboutPage() {
               <p className="font-sans text-fluid-body text-[#2C2D2E] font-light leading-relaxed">
                 Step inside Bella, and the outside world fades away. Our environment has been thoughtfully designed to promote calm and luxury. Whether you are stretching in our bright Pilates studio, relaxing by the pool, or receiving a treatment in our tranquil salon, every corner of Bella Wellness is an invitation to slow down and savor the moment.
               </p>
+            </div>
+
+            <div className="lg:col-span-5 lg:order-first relative h-[360px] md:h-[420px] rounded-2xl overflow-hidden border border-black/5">
+              <Image
+                src="/images/bella-wellness-cam1a.webp"
+                alt="Bella Wellness Space"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </motion.div>

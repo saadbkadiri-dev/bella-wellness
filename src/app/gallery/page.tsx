@@ -74,14 +74,14 @@ export default function GalleryPage() {
       : galleryItems.filter((item) => item.category === selectedCategory);
 
   return (
-    <main className="min-h-screen pt-32 pb-24 bg-[#F5EFEC] text-[#060707]">
+    <main className="min-h-screen pt-32 pb-24 bg-[#F6F3EF] text-[#0C0D0D]">
       {/* Header Banner */}
       <section className="max-w-4xl mx-auto px-6 text-center space-y-6 mb-16">
         <motion.span
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-xs uppercase tracking-[0.3em] text-[#A69876] font-sans font-light"
+          className="text-[13px] uppercase tracking-[0.3em] text-[#8C8275] font-sans font-semibold"
         >
           Visual Walkthrough
         </motion.span>
@@ -89,7 +89,7 @@ export default function GalleryPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal leading-tight text-[#060707]"
+          className="font-serif text-fluid-h2 font-light leading-tight text-[#0C0D0D]"
         >
           The Gallery
         </motion.h1>
@@ -97,23 +97,24 @@ export default function GalleryPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="font-sans text-base md:text-lg text-[#444445] leading-relaxed max-w-2xl mx-auto font-light"
+          className="font-sans text-base md:text-lg text-[#2C2D2E] leading-relaxed max-w-2xl mx-auto font-light"
         >
           Explore the spaces and experiences that make Bella Wellness your ultimate sanctuary in Beirut.
         </motion.p>
       </section>
 
-      {/* Category Filter Tabs */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 flex justify-center">
-        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 bg-white/60 backdrop-blur-xs p-2 rounded-full border border-[#C5BEAF]/30">
+      {/* Category Filter Tabs — flat underline tabs, not a pill (a shared rounded-full
+          container broke into a stretched blob on mobile once the labels wrapped). */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2 rounded-full text-xs uppercase tracking-widest transition-all duration-300 font-sans ${
+              className={`text-xs uppercase tracking-[0.25em] font-sans font-medium pb-1 border-b-2 transition-colors duration-300 ${
                 selectedCategory === cat
-                  ? 'bg-[#060707] text-[#F5EFEC] font-medium shadow-xs'
-                  : 'text-[#060707]/70 hover:text-[#060707] hover:bg-black/5'
+                  ? 'text-[#8C8275] border-[#8C8275] font-semibold'
+                  : 'text-[#0C0D0D]/60 border-transparent hover:text-[#0C0D0D]'
               }`}
             >
               {cat}
@@ -135,7 +136,7 @@ export default function GalleryPage() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5 }}
                 onClick={() => setLightboxImage(item.image)}
-                className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xs border border-[#C5BEAF]/30"
+                className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xs border border-black/5"
               >
                 <Image
                   src={item.image}
@@ -143,11 +144,11 @@ export default function GalleryPage() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060707]/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-[#A69876] font-sans font-light">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0D]/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C8275] font-sans font-light">
                     {item.category}
                   </span>
-                  <h3 className="font-serif text-xl text-[#F5EFEC] font-medium mt-1">
+                  <h3 className="font-serif text-xl text-[#F6F3EF] font-medium mt-1">
                     {item.title}
                   </h3>
                 </div>
