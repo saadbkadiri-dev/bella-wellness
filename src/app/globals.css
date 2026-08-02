@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-raw-linen: #F6F3EF;
+  --color-warm-parchment: #F9F7F4;
+  --color-warm-stone: #EFEBE6;
+  --color-muted-olive: #8C8275;
+  --color-deep-charcoal: #0C0D0D;
+  --color-[#2C2D2E]: #2C2D2E;
+  --color-soft-blush: #EAE3DE;
+
+  --font-serif: var(--font-heading), "Libre Caslon Display", Georgia, serif;
+  --font-sans: var(--font-body), "Sora", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+    color: var(--color-deep-charcoal);
+    background-color: var(--color-raw-linen);
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Fluid Typography Utilities */
+.text-fluid-hero {
+  font-size: clamp(2.5rem, 6.5vw, 6rem);
+  line-height: 1.05;
+}
+
+.text-fluid-h2 {
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: 1.15;
+}
+
+.text-fluid-body {
+  font-size: clamp(0.95rem, 1.25vw, 1.125rem);
+  line-height: 1.8;
+}
+
+/* Lenis Smooth Scroll CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Custom Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F3EF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5BEAF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8C8275;
+}

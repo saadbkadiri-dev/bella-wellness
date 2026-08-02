@@ -1,0 +1,194 @@
+/*-----------------------------------------------------------------------------------
+
+    CSS INDEX
+    ===================
+
+    1. - FONTS
+
+    2. - CUSTOMIZE THE CAROUSEL
+
+    3. - RESPONSIVE
+
+-----------------------------------------------------------------------------------*/
+
+
+/* 1. - FONTS
+-------------------------------------------------- */
+@font-face {
+    font-family: 'Dita Sweet';
+    src: url('../font/DitaSweet/DitaSweet.eot');
+    src: url('../font/DitaSweet/DitaSweet.eot?#iefix') format('embedded-opentype'),
+        url('../font/DitaSweet/DitaSweet.woff2') format('woff2'),
+        url('../font/DitaSweet/DitaSweet.woff') format('woff'),
+        url('../font/DitaSweet/DitaSweet.ttf') format('truetype'),
+        url('../font/DitaSweet/DitaSweet.svg#DitaSweet') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DidotItalic';
+    src: url('../font/DidotItalic/DidotItalic.eot');
+    src: url('../font/DidotItalic/DidotItalic.eot?#iefix') format('embedded-opentype'),
+        url('../font/DidotItalic/DidotItalic.woff2') format('woff2'),
+        url('../font/DidotItalic/DidotItalic.woff') format('woff'),
+        url('../font/DidotItalic/DidotItalic.ttf') format('truetype'),
+        url('../font/DidotItalic/DidotItalic.svg#DidotItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* 2. - CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+    height: 100vh;
+}
+/* Carousel control position */
+.carousel-control-next,
+.carousel-control-prev {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: auto;
+    transition: all .3s ease-in-out;
+    opacity: 1;
+    color: #fff;
+}
+.carousel-control-prev {
+    left: 2rem;
+}
+.carousel-control-next {
+    right: 2rem;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    padding: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+/* Declare heights because of positioning of img element */
+.carousel-inner,
+.carousel-item {
+    height: 100%;
+}
+.carousel-item {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* Carousel custom class */
+.carousel-caption > .row {
+    width: 100%;
+}
+.carousel-item-next .carousel-desc-ttl,
+.carousel-item-prev .carousel-desc-ttl {
+    transform: translateY(15px);
+    opacity: 0;
+    transition: transform .4s ease-in-out, opacity .4s ease-in-out;
+}
+.carousel-item-next .carousel-desc-txt,
+.carousel-item-prev .carousel-desc-txt {
+    transform: translateY(25px);
+    opacity: 0;
+    transition: transform .6s ease-in-out, opacity .6s ease-in-out;
+}
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.carousel-indicators {
+    margin-bottom: 0;
+    bottom: 8%;
+}
+.carousel-indicators .active {
+    background-color: #fff;
+}
+.carousel-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    color: #dcdac1;
+}
+.carousel-desc-ttl {
+    font-family: 'Dita Sweet';
+    font-size: 3.8rem;
+    line-height: 3.8rem;
+    margin-bottom: 2.4rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.carousel-desc-txt {
+    font-family: 'DidotItalic';
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    padding-right: 4rem;
+}
+.carousel-desc-ttl,
+.carousel-desc-txt {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform .4s ease-in-out, opacity .2s ease-in-out;
+}
+
+
+/* 3. - RESPONSIVE
+-------------------------------------------------- */
+
+@media only screen and (max-width: 1160px) {
+    .carousel-caption {
+        left: 10%;
+        right: 10%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .carousel-desc-ttl {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .carousel-caption {
+        left: 0;
+        right: 0;
+        padding: 0 1rem;
+    }
+    .carousel-caption > .row {
+        flex-direction: column-reverse;
+    }
+    .carousel-content {
+        padding: 1rem 10%;
+        max-width: 90%;
+    }
+    .carousel-desc-ttl {
+        font-size: 2.5rem;
+        line-height: 3rem;
+        margin-bottom: 1.6rem;
+    }
+    .carousel-desc-txt {
+        font-size: 1.5rem;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .carousel-content {
+        max-width: 100%;
+    }
+}

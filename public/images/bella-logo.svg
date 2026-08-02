@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <defs>
+    <style>
+      .logo-icon { fill: #9B9273; }
+      .logo-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; fill: #0D0E0C; letter-spacing: 2.5px; }
+      .logo-sub { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; fill: #9B9273; letter-spacing: 2px; }
+    </style>
+  </defs>
+  <!-- Minimalist Luxury Lotus/Wellness Icon -->
+  <g transform="translate(10, 10)">
+    <path class="logo-icon" d="M20 40 C 10 30, 5 15, 20 5 C 35 15, 30 30, 20 40 Z" opacity="0.9" />
+    <path class="logo-icon" d="M20 40 C 5 35, 0 20, 5 10 C 15 15, 18 28, 20 40 Z" opacity="0.6" />
+    <path class="logo-icon" d="M20 40 C 35 35, 40 20, 35 10 C 25 15, 22 28, 20 40 Z" opacity="0.6" />
+  </g>
+  <!-- Typography -->
+  <text x="62" y="36" class="logo-title">BELLA <tspan class="logo-sub">WELLNESS</tspan></text>
+</svg>
