@@ -64,10 +64,10 @@ export default function FloatingActions() {
           <Link
             href="/classes"
             aria-label="View Classes"
-            className="inline-flex items-center justify-center gap-2 w-9 h-9 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 rounded-full bg-[#EFEBE6]/95 text-[#35302B] border border-[#8C8275]/35 shadow-sm backdrop-blur-md hover:bg-[#8C8275] hover:text-[#F6F3EF] hover:border-[#8C8275] transition-all duration-300 group"
+            className="inline-flex items-center justify-center gap-2 w-9 h-9 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 rounded-full bg-[#EFEBE6]/95 border border-[#8C8275]/35 shadow-sm backdrop-blur-md hover:bg-[#8C8275] hover:border-[#8C8275] transition-all duration-300 group"
           >
-            <Calendar className="w-4 h-4 text-[#8C8275] group-hover:text-[#F6F3EF] transition-colors" />
-            <span className="hidden sm:inline text-xs uppercase tracking-[0.2em] font-sans font-semibold">
+            <Calendar className="w-4 h-4 text-[#35302B] group-hover:text-[#F6F3EF] transition-colors" />
+            <span className="hidden sm:inline text-xs uppercase tracking-[0.2em] font-sans font-semibold text-[#35302B] group-hover:text-[#F6F3EF] transition-colors">
               Classes
             </span>
           </Link>
