@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
+import ThemeToggle from '@/components/ThemeToggle';
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,7 +32,8 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '/#services' },
+    { name: 'Services', href: '/services' },
+    { name: 'Classes', href: '/classes' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -53,50 +56,54 @@ export default function Navbar() {
               priority
             />
           </div>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col items-center justify-center text-center">
             <div className="relative h-4 w-20 md:h-6 md:w-28">
               <Image
                 src="/images/word-bella.png"
                 alt="BELLA"
                 fill
-                className="object-contain object-left"
+                className="object-contain object-center"
                 priority
               />
             </div>
-            <span className="text-[8px] md:text-[9px] tracking-[0.3em] uppercase font-sans font-medium text-[#8C8275] mt-0.5">
+            <span className="text-[8px] md:text-[9px] tracking-[0.3em] uppercase font-sans font-medium text-[#8C8275] mt-0.5 text-center w-full pl-[0.3em]">
               WELLNESS
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-10">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`text-xs tracking-[0.25em] uppercase transition-colors duration-300 font-sans ${
-                  isActive
-                    ? 'text-[#8C8275] font-bold border-b-2 border-[#8C8275] pb-0.5'
-                    : 'text-[#0C0D0D]/80 hover:text-[#8C8275] font-medium'
-                }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-        </nav>
+        {/* Right Action Section — Desktop Navigation & Theme Toggle */}
+        <div className="flex items-center space-x-6 md:space-x-10">
+          <nav className="hidden md:flex items-center space-x-10">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`text-xs tracking-[0.25em] uppercase transition-colors duration-300 font-sans ${
+                    isActive
+                      ? 'text-[#8C8275] font-bold border-b-2 border-[#8C8275] pb-0.5'
+                      : 'text-[#0C0D0D]/80 hover:text-[#8C8275] font-medium'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+          </nav>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation menu"
-          className="md:hidden p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors rounded-full text-[#0C0D0D] hover:text-[#8C8275] hover:bg-black/5"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <ThemeToggle />
+
+          {/* Mobile Hamburger Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            className="md:hidden p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors rounded-full text-[#0C0D0D] hover:text-[#8C8275] hover:bg-black/5"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu — full-page takeover below the header */}

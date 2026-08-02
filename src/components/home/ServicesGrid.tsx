@@ -67,8 +67,21 @@ export default function ServicesGrid() {
   };
 
   return (
-    <section id="services" className="py-28 md:py-40 bg-[#EFEBE6] text-[#0C0D0D]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-16 md:space-y-24">
+    <section id="services" className="relative overflow-hidden py-28 md:py-40 bg-[#EFEBE6] text-[#0C0D0D]">
+      {/* Large Bella Lily Traced into the Background — fluidly scales with browser window resize */}
+      <div
+        aria-hidden="true"
+        className="hidden md:block absolute bottom-0 left-0 z-0 pointer-events-none w-[50vw] max-w-[960px] h-[38vw] max-h-[750px] min-w-[400px] min-h-[320px] opacity-[0.05] mix-blend-multiply -mb-6 -ml-8 transition-[width,height] duration-75"
+      >
+        <Image
+          src="/images/lilly-bella.webp"
+          alt=""
+          fill
+          className="object-contain object-bottom-left"
+        />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-16 md:space-y-24">
         
         {/* Section Header */}
         <div className="max-w-2xl text-left space-y-4">

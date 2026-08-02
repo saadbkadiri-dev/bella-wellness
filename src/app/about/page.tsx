@@ -3,11 +3,20 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const TEXTURE_URL =
-  'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48ZyBzdHJva2U9IiM4QjdFNjgiIHN0cm9rZS13aWR0aD0iMS4wIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjE0Ij48cGF0aCBkPSJNLTIwIDIwIFEgMjAgMCwgNjAgNDAgVCAxMDAgMjAiLz48cGF0aCBkPSJNLTIwIDQwIFEgMjAgMjAsIDYwIDYwIFQgMDAgNDAiLz48cGF0aCBkPSJNLTIwIDYwIFEgMjAgNDAsIDYwIDgwIFQgMDAgNjAiLz48cGF0aCBkPSJNMCAtMjAgUSA0MCAyMCwgMjAgNjAgVCA0MCAxMDAiLz48cGF0aCBkPSJNMjAgLTIwIFEgNjAgMjAsIDQwIDYwIFQgNjAgMDAiLz48cGF0aCBkPSJNNDAgLTIwIFEgODAgMjAsIDYwIDYwIFQgODAgMDAiLz48L2c+PC9zdmc+")';
+const LIGHT_TEXTURE_URL =
+  'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48ZyBzdHJva2U9IiM4QjdFNjgiIHN0cm9rZS13aWR0aD0iMS4wIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjE0Ij48cGF0aCBkPSJNLTIwIDIwIFEgMjAgMCwgNjAgNDAgVCAxMDAgMjAiLz48cGF0aCBkPSJNLTIwIDQwIFEgMjAgMjAsIDYwIDYwIFQgMDAgNDAiLz48cGF0aCBkPSJNLTIwIDYwIFEgMjAgNDAsIDYwIDgwIFQgMDAgNjAiLz48cGF0aCBkPSJNMCAtMjAgUSA0MCAyMCwgMjAgNjAgVCA4MCAxMDAiLz48cGF0aCBkPSJNMjAgLTIwIFEgNjAgMjAsIDQwIDYwIFQgNjAgMDAiLz48cGF0aCBkPSJNNDAgLTIwIFEgODAgMjAsIDYwIDYwIFQgODAgMDAiLz48L2c+PC9zdmc+")';
 
-const textureStyle = {
-  backgroundImage: TEXTURE_URL,
+const DARK_TEXTURE_URL =
+  'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48ZyBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMS4wIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjEwIj48cGF0aCBkPSJNLTIwIDIwIFEgMjAgMCwgNjAgNDAgVCAxMDAgMjAiLz48cGF0aCBkPSJNLTIwIDQwIFEgMjAgMjAsIDYwIDYwIFQgMDAgNDAiLz48cGF0aCBkPSJNLTIwIDYwIFEgMjAgNDAsIDYwIDgwIFQgMDAgNjAiLz48cGF0aCBkPSJNMCAtMjAgUSA0MCAyMCwgMjAgNjAgVCA4MCAxMDAiLz48cGF0aCBkPSJNMjAgLTIwIFEgNjAgMjAsIDQwIDYwIFQgNjAgMDAiLz48cGF0aCBkPSJNNDAgLTIwIFEgODAgMjAsIDYwIDYwIFQgODAgMDAiLz48L2c+PC9zdmc+")';
+
+const lightTextureStyle = {
+  backgroundImage: LIGHT_TEXTURE_URL,
+  backgroundRepeat: 'repeat' as const,
+  backgroundSize: '80px 80px',
+};
+
+const darkTextureStyle = {
+  backgroundImage: DARK_TEXTURE_URL,
   backgroundRepeat: 'repeat' as const,
   backgroundSize: '80px 80px',
 };
@@ -43,7 +52,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
           className="border border-black/10 bg-[#F9F7F4] p-8 md:p-12 texture-drift"
-          style={textureStyle}
+          style={lightTextureStyle}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7 space-y-6 text-left">
@@ -76,7 +85,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
           className="border border-black/10 bg-[#F9F7F4] p-8 md:p-12 texture-drift"
-          style={textureStyle}
+          style={lightTextureStyle}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7 space-y-6 text-left">
@@ -109,7 +118,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
           className="border border-black/10 bg-[#F9F7F4] p-8 md:p-12 texture-drift"
-          style={textureStyle}
+          style={lightTextureStyle}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7 space-y-6 text-left">
@@ -136,25 +145,25 @@ export default function AboutPage() {
         </motion.div>
       </div>
 
-      {/* Row 4: The Philosophy — full-width textured strip, no boxed card */}
+      {/* Row 4: The Philosophy — full-width textured strip in WhatsApp Pill Color #8C8275 */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="mt-24 md:mt-32 py-20 md:py-28 px-6 text-center space-y-6 bg-[#EAE3DE] texture-drift"
-        style={textureStyle}
+        className="mt-24 md:mt-32 py-20 md:py-28 px-6 text-center space-y-6 bg-[#8C8275] text-[#F6F3EF] texture-drift"
+        style={darkTextureStyle}
       >
-        <span className="text-[13px] uppercase tracking-[0.3em] text-[#8C8275] font-sans font-semibold">
+        <span className="text-[13px] uppercase tracking-[0.3em] text-[#F6F3EF]/80 font-sans font-semibold">
           04 &bull; OUR CORE BELIEF
         </span>
-        <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight text-[#0C0D0D]">
+        <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight text-[#F6F3EF]">
           The Philosophy
         </h2>
-        <p className="font-serif italic text-2xl md:text-3xl text-[#2C2D2E] max-w-3xl mx-auto font-light">
+        <p className="font-serif italic text-2xl md:text-3xl text-[#F6F3EF]/90 max-w-3xl mx-auto font-light">
           &ldquo;A community of women thriving in wellness.&rdquo;
         </p>
-        <p className="font-sans text-base md:text-lg text-[#0C0D0D]/70 leading-relaxed max-w-2xl mx-auto font-light pt-4">
+        <p className="font-sans text-base md:text-lg text-[#F6F3EF]/80 leading-relaxed max-w-2xl mx-auto font-light pt-4">
           We are not just providing services; we are fostering a community. We believe that when women support each other in a dedicated, nurturing environment, true transformation occurs.
         </p>
       </motion.div>

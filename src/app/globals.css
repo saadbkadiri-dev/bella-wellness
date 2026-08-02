@@ -13,13 +13,33 @@
   --font-sans: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
 }
 
+:root {
+  --bg-primary: #F6F3EF;
+  --bg-card: #F9F7F4;
+  --bg-banner: #EAE3DE;
+  --text-primary: #0C0D0D;
+  --text-secondary: #8C8275;
+  --border-color: rgba(140, 130, 117, 0.25);
+}
+
+html.dark {
+  --bg-primary: #141210;
+  --bg-card: #1E1B18;
+  --bg-banner: #282420;
+  --text-primary: #F6F3EF;
+  --text-secondary: #B8AF9F;
+  --border-color: rgba(184, 175, 159, 0.2);
+  color-scheme: dark;
+}
+
 @layer base {
   html {
     scroll-behavior: auto;
-    color: var(--color-deep-charcoal);
-    background-color: var(--color-raw-linen);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
     font-family: var(--font-sans);
     letter-spacing: -0.01em;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -27,6 +47,52 @@
     font-weight: 300;
     letter-spacing: -0.02em;
   }
+}
+
+/* Dark mode smooth global overrides */
+html.dark body {
+  background-color: #141210;
+  color: #F6F3EF;
+}
+
+html.dark .bg-\[\#F6F3EF\] {
+  background-color: #141210 !important;
+}
+
+html.dark .bg-\[\#F9F7F4\] {
+  background-color: #1E1B18 !important;
+}
+
+html.dark .bg-\[\#EFEBE6\] {
+  background-color: #24201C !important;
+}
+
+html.dark .bg-\[\#EAE3DE\] {
+  background-color: #282420 !important;
+}
+
+html.dark .text-\[\#0C0D0D\],
+html.dark .text-\[\#35302B\],
+html.dark .text-\[\#2C2D2E\] {
+  color: #F6F3EF !important;
+}
+
+html.dark .text-\[\#8C8275\] {
+  color: #B8AF9F !important;
+}
+
+html.dark .border-black\/10,
+html.dark .border-\[\#8C8275\]\/25,
+html.dark .border-\[\#8C8275\]\/20 {
+  border-color: rgba(184, 175, 159, 0.2) !important;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #141210;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #3A352F;
 }
 
 /* Fluid Typography Utilities */
@@ -71,8 +137,7 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Slow drifting pan for the wave texture background — used sparingly (About page only)
-   for a very subtle sense of movement, not a generic animated gradient. */
+/* Slow drifting pan for the wave texture background */
 @keyframes textureDrift {
   from { background-position: 0px 0px; }
   to { background-position: 160px 160px; }

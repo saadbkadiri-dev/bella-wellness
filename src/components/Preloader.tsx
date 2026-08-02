@@ -13,11 +13,11 @@ export default function Preloader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoaded(true);
-    }, 3800);
+    }, 1500);
 
     const hideTimer = setTimeout(() => {
       setHidden(true);
-    }, 4900);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
@@ -32,7 +32,7 @@ export default function Preloader() {
       aria-hidden="true"
       initial={false}
       animate={{ opacity: loaded ? 0 : 1 }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed inset-0 z-[99999] flex items-center justify-center ${loaded ? 'pointer-events-none' : ''}`}
       style={{
         backgroundColor: '#C5BEAF',
@@ -54,23 +54,23 @@ export default function Preloader() {
                 stroke-dasharray: 2000;
                 stroke-dashoffset: 2000;
                 opacity: 1;
-                animation: traceArchOutline 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards, fillArchColor 0.8s ease-in-out 1.4s forwards;
+                animation: traceArchOutline 0.5s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards, fillArchColor 0.3s ease-in-out 0.5s forwards;
               }
               #preloader-svg .st3 {
                 fill: #A69876;
                 opacity: 0;
                 transform-origin: 960px 480px;
-                animation: bloomLillyVector 1.1s cubic-bezier(0.16, 1, 0.3, 1) 1.6s forwards;
+                animation: bloomLillyVector 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
               }
               #preloader-svg .st4 {
                 fill: #060707;
                 opacity: 0;
-                animation: revealWordmarkVector 0.8s ease-out 2.0s forwards;
+                animation: revealWordmarkVector 0.3s ease-out 0.8s forwards;
               }
               #preloader-svg .st0 {
                 fill: #444445;
                 opacity: 0;
-                animation: revealWordmarkVector 0.8s ease-out 2.2s forwards;
+                animation: revealWordmarkVector 0.3s ease-out 0.9s forwards;
               }
               @keyframes traceArchOutline {
                 0% { stroke-dashoffset: 2000; fill: transparent; }

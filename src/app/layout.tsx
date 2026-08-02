@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/context/ThemeContext';
 import Preloader from '@/components/Preloader';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
 import SmoothScrollProvider from '@/components/SmoothScrollProvider';
 
 const montserrat = Montserrat({
@@ -27,12 +29,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.variable}>
       <body className="antialiased font-sans bg-[#F6F3EF] text-[#0C0D0D] selection:bg-[#8C8275]/20 selection:text-[#0C0D0D]">
-        <SmoothScrollProvider>
-          <Preloader />
-          <Navbar />
-          {children}
-          <Footer />
-        </SmoothScrollProvider>
+        <ThemeProvider>
+          <SmoothScrollProvider>
+            <Preloader />
+            <Navbar />
+            {children}
+            <FloatingActions />
+            <Footer />
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
