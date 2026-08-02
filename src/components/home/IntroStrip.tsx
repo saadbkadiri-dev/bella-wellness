@@ -39,7 +39,7 @@ export default function IntroStrip() {
               transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="font-sans text-fluid-body text-[#2C2D2E] font-light max-w-xl text-left leading-relaxed"
             >
-              We have created an exclusive sanctuary designed entirely for women—a space where you can move, heal, and glow. Bella is more than a destination; it is a comprehensive retreat where physical vitality meets profound relaxation and expert care.
+              We have created an exclusive sanctuary designed entirely for women. Beyond our private movement studios and serene recovery pools, Bella offers specialized practitioners and proprietary InLine body technology within a strictly curated environment for peak physical and mental restoration.
             </motion.p>
           </div>
 

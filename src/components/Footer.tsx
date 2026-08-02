@@ -40,7 +40,7 @@ export default function Footer() {
             href="https://maps.google.com/?q=Ohana+Hills+Beirut"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 text-sm text-[#F6F3EF]/80 hover:text-[#8C8275] transition-colors group font-sans font-light"
+            className="inline-flex items-center gap-2.5 text-sm text-[#F6F3EF]/80 hover:text-[#8C8275] hover:bg-white/5 transition-colors group font-sans font-light min-h-[44px] py-2 px-3 -ml-3 rounded-md"
           >
             <MapPin size={16} className="text-[#8C8275] group-hover:scale-110 transition-transform" />
             <span>Ohana Hills, Beirut</span>
@@ -56,7 +56,7 @@ export default function Footer() {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 text-sm text-[#F6F3EF]/80 hover:text-[#8C8275] transition-colors group font-sans font-light"
+            className="inline-flex items-center gap-2.5 text-sm text-[#F6F3EF]/80 hover:text-[#8C8275] hover:bg-white/5 transition-colors group font-sans font-light min-h-[44px] py-2 px-3 -ml-3 rounded-md"
           >
             <Instagram size={16} className="text-[#8C8275] group-hover:scale-110 transition-transform" />
             <span>Instagram</span>

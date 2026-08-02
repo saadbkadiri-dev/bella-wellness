@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 const services = [
   {
@@ -47,9 +49,11 @@ const services = [
 ];
 
 export default function ServicesGrid() {
+  const [activeIdx, setActiveIdx] = useState(0);
+
   return (
-    <section className="py-28 md:py-40 bg-[#EFEBE6] text-[#0C0D0D]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-24 md:space-y-36">
+    <section id="services" className="py-28 md:py-40 bg-[#EFEBE6] text-[#0C0D0D]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-16 md:space-y-24">
         
         {/* Section Header */}
         <div className="max-w-2xl text-left space-y-4">
@@ -73,60 +77,94 @@ export default function ServicesGrid() {
           </motion.h2>
         </div>
 
-        {/* Alternating Asymmetric Editorial Layouts (No Rigid Card Boxes) */}
-        <div className="space-y-28 md:space-y-40">
-          {services.map((service, idx) => {
-            const isEven = idx % 2 === 0;
-            return (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          {/* Left: Sticky Image Container (Desktop) */}
+          <div className="lg:col-span-5 sticky top-32 h-[440px] md:h-[600px] rounded-2xl overflow-hidden shadow-xs border border-black/5 hidden lg:block">
+            <AnimatePresence mode="wait">
               <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+                key={activeIdx}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0"
               >
-                {/* Image Lockup */}
-                <div
-                  className={`lg:col-span-6 relative h-[380px] md:h-[480px] rounded-2xl overflow-hidden shadow-xs border border-black/5 ${
-                    isEven ? 'lg:order-1' : 'lg:order-2'
-                  }`}
-                >
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-1000 ease-out"
-                  />
-                </div>
-
-                {/* Text Lockup */}
-                <div
-                  className={`lg:col-span-6 space-y-6 text-left ${
-                    isEven ? 'lg:order-2 lg:pl-6' : 'lg:order-1 lg:pr-6'
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="font-serif text-2xl text-[#8C8275] font-light">
-                      {service.number}
-                    </span>
-                    <span
-                      className="text-[10px] uppercase tracking-[0.25em] text-[#8C8275] font-sans font-medium"
-                      dangerouslySetInnerHTML={{ __html: service.category }}
-                    />
-                  </div>
-
-                  <h3 className="font-serif text-3xl md:text-4xl font-light text-[#0C0D0D] tracking-tight">
-                    {service.title}
-                  </h3>
-
-                  <p className="font-sans text-fluid-body text-[#2C2D2E] font-light leading-relaxed max-w-lg">
-                    {service.description}
-                  </p>
-                </div>
+                <Image
+                  src={services[activeIdx].image}
+                  alt={services[activeIdx].title}
+                  fill
+                  className="object-cover"
+                />
               </motion.div>
-            );
-          })}
+            </AnimatePresence>
+          </div>
+
+          {/* Right: Accordion List */}
+          <div className="lg:col-span-7 flex flex-col border-t border-black/10">
+            {services.map((service, idx) => {
+              const isActive = activeIdx === idx;
+              
+              return (
+                <div key={service.title} className="border-b border-black/10">
+                  <button
+                    onClick={() => setActiveIdx(idx)}
+                    className="w-full py-8 text-left flex items-center justify-between group focus:outline-none"
+                    aria-expanded={isActive}
+                  >
+                    <div className="flex items-start gap-6">
+                      <span className={`font-serif text-xl md:text-2xl pt-1 transition-colors ${isActive ? 'text-[#8C8275]' : 'text-black/30 group-hover:text-[#8C8275]'}`}>
+                        {service.number}
+                      </span>
+                      <div className="space-y-1.5">
+                        <h3 className={`font-serif text-2xl md:text-4xl font-light tracking-tight transition-colors ${isActive ? 'text-[#0C0D0D]' : 'text-[#0C0D0D]/70 group-hover:text-[#0C0D0D]'}`}>
+                          {service.title}
+                        </h3>
+                        <span
+                          className={`block text-xs md:text-sm font-sans font-medium tracking-[0.2em] uppercase transition-colors ${isActive ? 'text-[#8C8275]' : 'text-[#8C8275]/80'}`}
+                          dangerouslySetInnerHTML={{ __html: service.category }}
+                        />
+                      </div>
+                    </div>
+                    <motion.div
+                      animate={{ rotate: isActive ? 180 : 0 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      className={`text-[#8C8275] pt-2 transition-opacity ${isActive ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'}`}
+                    >
+                      <ChevronDown size={24} strokeWidth={1.5} />
+                    </motion.div>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-10 pl-14 md:pl-16 space-y-6">
+                          {/* Mobile Image (shows only on small screens inside accordion) */}
+                          <div className="lg:hidden relative h-[260px] md:h-[400px] rounded-xl overflow-hidden mt-4 mb-8 border border-black/5">
+                            <Image
+                              src={service.image}
+                              alt={service.title}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+
+                          <p className="font-sans text-fluid-body text-[#0C0D0D]/90 font-light leading-relaxed max-w-xl text-base md:text-lg">
+                            {service.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
       </div>

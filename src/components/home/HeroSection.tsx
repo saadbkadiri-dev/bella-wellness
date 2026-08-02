@@ -32,7 +32,7 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen min-h-[700px] flex items-center justify-start overflow-hidden bg-[#0C0D0D]"
+      className="relative w-full h-screen min-h-[700px] flex items-center justify-start overflow-hidden bg-[#F6F3EF]"
     >
       {/* Background Image Container with Parallax */}
       <motion.div style={{ y: parallaxY, opacity: opacityFade }} className="absolute inset-0 w-full h-full">
@@ -49,11 +49,11 @@ export default function HeroSection() {
               src={heroImages[currentIdx].src}
               alt={heroImages[currentIdx].alt}
               fill
-              className="object-cover object-center filter brightness-[0.75] contrast-[1.0]"
+              className="object-cover object-center filter brightness-[1.1] contrast-[1.02]"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0C0D0D]/60 via-[#0C0D0D]/20 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0D]/70 via-transparent to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
           </motion.div>
         </AnimatePresence>
       </motion.div>
@@ -77,17 +77,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif text-fluid-hero font-light text-[#F6F3EF] leading-[1.02] tracking-tight"
+            className="font-serif text-fluid-hero font-light text-[#F6F3EF] leading-[1.02] tracking-tight drop-shadow-md"
           >
             A community of women <br />
-            <motion.span
-              initial={{ opacity: 0, filter: 'blur(6px)' }}
-              animate={{ opacity: 1, filter: 'blur(0px)' }}
-              transition={{ duration: 1.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="italic font-light text-[#EAE3DE]"
-            >
-              thriving in wellness.
-            </motion.span>
+            thriving in wellness.
           </motion.h1>
         </div>
       </div>

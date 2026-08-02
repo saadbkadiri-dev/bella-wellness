@@ -1,0 +1,15 @@
+# ignore large media and design files
+public/assets/Themes
+assets/Themes
+*.fig
+*.mov
+*.mp4
+*.zip
+*.psd
+*.ai
+*.pdf
+
+# ignore cache and dependencies
+node_modules
+.next
+.git

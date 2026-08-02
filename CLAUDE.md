@@ -20,4 +20,5 @@ Bella Wellness is an exclusive sanctuary designed entirely for women to move, he
 ## Current State
 - The landing page (`/`), About (`/about`), and Gallery (`/gallery`) pages are implemented.
 - The project is configured with a custom preloader, smooth scrolling, and editorial fluid typography using CSS clamps.
-- Deployed to Vercel and repository hosted on GitHub.
+- Repository is successfully hosted on GitHub (`saadbkadiri-dev/bella-wellness`) with large design assets (`*.fig`, `*.mov`, etc.) properly ignored.
+- Connected to Vercel for continuous deployment, with a configured `.vercelignore` to optimize build sizes.
