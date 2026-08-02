@@ -106,9 +106,14 @@ export default function ServicesGrid() {
             style={{
               clipPath: 'url(#servicesArchClip)',
               WebkitClipPath: 'url(#servicesArchClip)',
+              backgroundColor: '#0C0D0D',
             }}
           >
-            <AnimatePresence mode="wait">
+            {/* No mode="wait" here on purpose — the old image needs to stay visible while
+                the new one fades in, otherwise there's a gap with nothing rendered inside
+                the clip-path and the arch shape itself flashes away (nothing to draw its
+                silhouette). The bg fill above is a second safety net for the same gap. */}
+            <AnimatePresence>
               <motion.div
                 key={displayIdx}
                 initial={{ opacity: 0, scale: 1.05 }}
@@ -133,6 +138,16 @@ export default function ServicesGrid() {
                 backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48ZyBzdHJva2U9IiNGNkYzRUYiIHN0cm9rZS13aWR0aD0iMS4zIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjMyIj48cGF0aCBkPSJNLTIwIDIwIFEgMjAgMCwgNjAgNDAgVCAxMDAgMjAiLz48cGF0aCBkPSJNLTIwIDQwIFEgMjAgMjAsIDYwIDYwIFQgMDAgNDAiLz48cGF0aCBkPSJNLTIwIDYwIFEgMjAgNDAsIDYwIDgwIFQgMDAgNjAiLz48cGF0aCBkPSJNMCAtMjAgUSA0MCAyMCwgMjAgNjAgVCA0MCAxMDAiLz48cGF0aCBkPSJNMjAgLTIwIFEgNjAgMjAsIDQwIDYwIFQgNjAgMDAiLz48cGF0aCBkPSJNNDAgLTIwIFEgODAgMjAsIDYwIDYwIFQgODAgMDAiLz48L2c+PC9zdmc+")`,
                 backgroundRepeat: 'repeat',
                 backgroundSize: '80px 80px',
+              }}
+            />
+            {/* Soft inner vignette — reads as depth/recession into a real window opening,
+                rather than a flat photo cutout. Pure CSS gradient, no extra assets/JS,
+                negligible cost. */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(ellipse 80% 70% at center, transparent 35%, rgba(12,13,13,0.7) 100%)',
               }}
             />
           </div>
