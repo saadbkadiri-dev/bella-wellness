@@ -5,7 +5,14 @@ import { motion } from 'framer-motion';
 
 export default function IntroStrip() {
   return (
-    <section className="py-24 md:py-36 bg-[#F6F3EF] text-[#0C0D0D] relative overflow-hidden">
+    <section
+      className="py-24 md:py-36 bg-[#F6F3EF] text-[#0C0D0D] relative overflow-hidden"
+      style={{
+        backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48ZyBzdHJva2U9IiM4QjdFNjgiIHN0cm9rZS13aWR0aD0iMS4wIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjE0Ij48cGF0aCBkPSJNLTIwIDIwIFEgMjAgMCwgNjAgNDAgVCAxMDAgMjAiLz48cGF0aCBkPSJNLTIwIDQwIFEgMjAgMjAsIDYwIDYwIFQgMDAgNDAiLz48cGF0aCBkPSJNLTIwIDYwIFEgMjAgNDAsIDYwIDgwIFQgMDAgNjAiLz48cGF0aCBkPSJNMCAtMjAgUSA0MCAyMCwgMjAgNjAgVCA0MCAxMDAiLz48cGF0aCBkPSJNMjAgLTIwIFEgNjAgMjAsIDQwIDYwIFQgNjAgMDAiLz48cGF0aCBkPSJNNDAgLTIwIFEgODAgMjAsIDYwIDYwIFQgODAgMDAiLz48L2c+PC9zdmc+")`,
+        backgroundRepeat: 'repeat',
+        backgroundSize: '80px 80px',
+      }}
+    >
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -17,7 +24,7 @@ export default function IntroStrip() {
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="text-[11px] uppercase tracking-[0.3em] text-[#8C8275] font-sans font-medium">
+              <span className="text-[13px] uppercase tracking-[0.3em] text-[#8C8275] font-sans font-semibold">
                 OUR SANCTUARY &bull; BEIRUT
               </span>
             </motion.div>
@@ -27,7 +34,7 @@ export default function IntroStrip() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-fluid-h2 font-light text-[#0C0D0D] tracking-tight leading-[1.12]"
+              className="font-serif text-fluid-h3 font-light text-[#0C0D0D] tracking-tight leading-[1.15]"
             >
               Welcome to Bella Wellness, nestled in the serene Ohana Hills of Beirut.
             </motion.h2>

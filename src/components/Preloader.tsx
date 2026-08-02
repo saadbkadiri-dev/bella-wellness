@@ -1,6 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+const TEXTURE_URL =
+  'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48ZyBzdHJva2U9IiM4QjdFNjgiIHN0cm9rZS13aWR0aD0iMS4wIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjE0Ij48cGF0aCBkPSJNLTIwIDIwIFEgMjAgMCwgNjAgNDAgVCAxMDAgMjAiLz48cGF0aCBkPSJNLTIwIDQwIFEgMjAgMjAsIDYwIDYwIFQgMDAgNDAiLz48cGF0aCBkPSJNLTIwIDYwIFEgMjAgNDAsIDYwIDgwIFQgMDAgNjAiLz48cGF0aCBkPSJNMCAtMjAgUSA0MCAyMCwgMjAgNjAgVCA0MCAxMDAiLz48cGF0aCBkPSJNMjAgLTIwIFEgNjAgMjAsIDQwIDYwIFQgNjAgMDAiLz48cGF0aCBkPSJNNDAgLTIwIFEgODAgMjAsIDYwIDYwIFQgODAgMDAiLz48L2c+PC9zdmc+")';
 
 export default function Preloader() {
   const [loaded, setLoaded] = useState(false);
@@ -13,7 +17,7 @@ export default function Preloader() {
 
     const hideTimer = setTimeout(() => {
       setHidden(true);
-    }, 4600);
+    }, 4900);
 
     return () => {
       clearTimeout(timer);
@@ -24,15 +28,17 @@ export default function Preloader() {
   if (hidden) return null;
 
   return (
-    <div
+    <motion.div
       aria-hidden="true"
-      className={`fixed inset-0 z-[99999] flex items-center justify-center bg-[#C5BEAF] transition-all duration-800 ease-[cubic-bezier(0.77,0,0.175,1)] ${
-        loaded ? 'opacity-0 -translate-y-full pointer-events-none' : 'opacity-100 translate-y-0'
-      }`}
+      initial={false}
+      animate={{ opacity: loaded ? 0 : 1 }}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed inset-0 z-[99999] flex items-center justify-center ${loaded ? 'pointer-events-none' : ''}`}
       style={{
-        backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48ZyBzdHJva2U9IiM4QjdFNjgiIHN0cm9rZS13aWR0aD0iMS4wIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjE0Ij48cGF0aCBkPSJNLTIwIDIwIFEgMjAgMCwgNjAgNDAgVCAxMDAgMjAiLz48cGF0aCBkPSJNLTIwIDQwIFEgMjAgMjAsIDYwIDYwIFQgMDAgNDAiLz48cGF0aCBkPSJNLTIwIDYwIFEgMjAgNDAsIDYwIDgwIFQgMDAgNjAiLz48cGF0aCBkPSJNMCAtMjAgUSA0MCAyMCwgMjAgNjAgVCA0MCAxMDAiLz48cGF0aCBkPSJNMjAgLTIwIFEgNjAgMjAsIDQwIDYwIFQgNjAgMDAiLz48cGF0aCBkPSJNNDAgLTIwIFEgODAgMjAsIDYwIDYwIFQgODAgMDAiLz48L2c+PC9zdmc+")`,
+        backgroundColor: '#C5BEAF',
+        backgroundImage: TEXTURE_URL,
         backgroundRepeat: 'repeat',
-        backgroundSize: '80px 80px'
+        backgroundSize: '80px 80px',
       }}
     >
       <div className="w-[680px] max-w-[92vw] h-auto flex items-center justify-center">
@@ -130,6 +136,6 @@ export default function Preloader() {
           </g>
         </svg>
       </div>
-    </div>
+    </motion.div>
   );
 }

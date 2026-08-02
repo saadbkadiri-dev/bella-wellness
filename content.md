@@ -24,7 +24,7 @@ To achieve the "sleek, modern, nice" vibe without falling into the trap of overu
 *(Note: No buttons or calls to action here, just a strong, full-width visual and the text.)*
 
 ### Intro Strip
-Welcome to Bella Wellness, nestled in the serene Ohana Hills of Beirut. We have created an exclusive sanctuary designed entirely for women—a space where you can move, heal, and glow. Bella is more than a destination; it is a comprehensive retreat where physical vitality meets profound relaxation and expert care.
+Welcome to Bella Wellness, nestled in the serene Ohana Hills of Beirut. We have created an exclusive sanctuary designed entirely for women - a space where you can move, heal, and glow. Bella is more than a destination; it is a comprehensive retreat where physical vitality meets profound relaxation and expert care.
 
 ### Services Grid
 *(Display these as clean cards or visual sections)*
@@ -56,13 +56,13 @@ True wellness begins from within. Our team of certified dieticians, nutritionist
 ## 2. About Page
 
 ### The Story
-Bella Wellness was born from a simple vision: to create a haven in Beirut where women could freely prioritize their well-being without compromise. Situated in the peaceful surroundings of Ohana Hills, we recognized the need for a comprehensive space that seamlessly blends fitness, recovery, beauty, and health. Bella is our answer to the modern woman's need for a sanctuary—a place to recharge, rejuvenate, and thrive.
+Bella Wellness was born from a simple vision: to create a haven in Beirut where women could freely prioritize their well-being without compromise. Situated in the peaceful surroundings of Ohana Hills, we recognized the need for a comprehensive space that seamlessly blends fitness, recovery, beauty, and health. Bella is our answer to the modern woman's need for a sanctuary - a place to recharge, rejuvenate, and thrive.
 
 ### The Space
 Step inside Bella, and the outside world fades away. Our environment has been thoughtfully designed to promote calm and luxury. Whether you are stretching in our bright Pilates studio, relaxing by the pool, or receiving a treatment in our tranquil salon, every corner of Bella Wellness is an invitation to slow down and savor the moment.
 
 ### The Team
-Behind every service at Bella is a team of passionate experts. Our certified fitness instructors guide your movement journey, while our beauty professionals bring out your inner radiance. Our health specialists—including dieticians, nutritionists, and physiotherapists—work collaboratively to ensure your physical and nutritional needs are met with precision and care.
+Behind every service at Bella is a team of passionate experts. Our certified fitness instructors guide your movement journey, while our beauty professionals bring out your inner radiance. Our health specialists - including dieticians, nutritionists, and physiotherapists - work collaboratively to ensure your physical and nutritional needs are met with precision and care.
 
 ### The Philosophy
 At the core of Bella Wellness is our guiding philosophy: "A community of women thriving in wellness." We are not just providing services; we are fostering a community. We believe that when women support each other in a dedicated, nurturing environment, true transformation occurs.
@@ -99,7 +99,7 @@ Ohana Hills, Beirut
 
 **Connect**
 *(Instagram Icon/Link)*
-*(WhatsApp Icon/Link — to be added in Phase 2)*
+*(WhatsApp Icon/Link - to be added in Phase 2)*
 
 ---
 *Note: Phase 2 will introduce calls to action and the WhatsApp booking integration.*

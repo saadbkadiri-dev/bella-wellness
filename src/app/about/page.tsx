@@ -12,7 +12,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-[11px] uppercase tracking-[0.3em] text-[#8C8275] font-sans font-medium"
+          className="text-[13px] uppercase tracking-[0.3em] text-[#8C8275] font-sans font-semibold"
         >
           OUR ESSENCE & VISION
         </motion.span>
@@ -36,14 +36,14 @@ export default function AboutPage() {
             transition={{ duration: 0.9 }}
             className="lg:col-span-7 space-y-6 text-left"
           >
-            <span className="text-[11px] uppercase tracking-[0.25em] text-[#8C8275] font-sans font-medium">
+            <span className="text-[13px] uppercase tracking-[0.25em] text-[#8C8275] font-sans font-semibold">
               01 &bull; ORIGIN
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-light text-[#0C0D0D]">
               The Story
             </h2>
             <p className="font-sans text-fluid-body text-[#2C2D2E] font-light leading-relaxed">
-              Bella Wellness was born from a simple vision: to create a haven in Beirut where women could freely prioritize their well-being without compromise. Situated in the peaceful surroundings of Ohana Hills, we recognized the need for a comprehensive space that seamlessly blends fitness, recovery, beauty, and health. Bella is our answer to the modern woman&apos;s need for a sanctuary—a place to recharge, rejuvenate, and thrive.
+              Bella Wellness was born from a simple vision: to create a haven in Beirut where women could freely prioritize their well-being without compromise. Situated in the peaceful surroundings of Ohana Hills, we recognized the need for a comprehensive space that seamlessly blends fitness, recovery, beauty, and health. Bella is our answer to the modern woman&apos;s need for a sanctuary - a place to recharge, rejuvenate, and thrive.
             </p>
           </motion.div>
 
@@ -87,7 +87,7 @@ export default function AboutPage() {
             transition={{ duration: 0.9 }}
             className="lg:col-span-7 space-y-6 text-left lg:order-1"
           >
-            <span className="text-[11px] uppercase tracking-[0.25em] text-[#8C8275] font-sans font-medium">
+            <span className="text-[13px] uppercase tracking-[0.25em] text-[#8C8275] font-sans font-semibold">
               02 &bull; ENVIRONMENT
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-light text-[#0C0D0D]">
@@ -108,14 +108,14 @@ export default function AboutPage() {
             transition={{ duration: 0.9 }}
             className="lg:col-span-7 space-y-6 text-left"
           >
-            <span className="text-[11px] uppercase tracking-[0.25em] text-[#8C8275] font-sans font-medium">
+            <span className="text-[13px] uppercase tracking-[0.25em] text-[#8C8275] font-sans font-semibold">
               03 &bull; EXPERTISE
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-light text-[#0C0D0D]">
               The Team
             </h2>
             <p className="font-sans text-fluid-body text-[#2C2D2E] font-light leading-relaxed">
-              Behind every service at Bella is a team of passionate experts. Our certified fitness instructors guide your movement journey, while our beauty professionals bring out your inner radiance. Our health specialists—including dieticians, nutritionists, and physiotherapists—work collaboratively to ensure your physical and nutritional needs are met with precision and care.
+              Behind every service at Bella is a team of passionate experts. Our certified fitness instructors guide your movement journey, while our beauty professionals bring out your inner radiance. Our health specialists - including dieticians, nutritionists, and physiotherapists - work collaboratively to ensure your physical and nutritional needs are met with precision and care.
             </p>
           </motion.div>
 
@@ -143,7 +143,7 @@ export default function AboutPage() {
           transition={{ duration: 1 }}
           className="bg-[#0C0D0D] text-[#F6F3EF] p-12 md:p-20 rounded-3xl text-center space-y-6 border border-white/10 shadow-xl"
         >
-          <span className="text-[11px] uppercase tracking-[0.3em] text-[#8C8275] font-sans font-medium">
+          <span className="text-[13px] uppercase tracking-[0.3em] text-[#8C8275] font-sans font-semibold">
             04 &bull; OUR CORE BELIEF
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-light leading-tight">

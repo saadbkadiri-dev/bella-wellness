@@ -1,22 +1,15 @@
 import type { Metadata } from 'next';
-import { Libre_Caslon_Display, Sora } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import './globals.css';
 import Preloader from '@/components/Preloader';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SmoothScrollProvider from '@/components/SmoothScrollProvider';
 
-const libreCaslon = Libre_Caslon_Display({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-heading',
-  display: 'swap',
-});
-
-const sora = Sora({
-  subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  variable: '--font-body',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-montserrat',
   display: 'swap',
 });
 
@@ -32,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${libreCaslon.variable} ${sora.variable}`}>
+    <html lang="en" className={montserrat.variable}>
       <body className="antialiased font-sans bg-[#F6F3EF] text-[#0C0D0D] selection:bg-[#8C8275]/20 selection:text-[#0C0D0D]">
         <SmoothScrollProvider>
           <Preloader />

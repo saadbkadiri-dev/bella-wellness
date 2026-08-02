@@ -32,32 +32,38 @@ export default function Navbar() {
     { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/#services' },
     { name: 'Gallery', href: '/gallery' },
-    { name: 'Pricing', href: '/pricing' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-        scrolled
-          ? 'bg-[#F6F3EF]/90 backdrop-blur-md py-4 border-b border-black/5 shadow-2xs'
-          : 'bg-black/40 backdrop-blur-md py-5 border-b border-white/10'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-[#F6F3EF]/95 backdrop-blur-md border-b border-[#8C8275]/20 shadow-2xs ${
+        scrolled ? 'py-4' : 'py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 flex items-center justify-between">
+      <div className="px-6 sm:px-12 lg:px-16 flex items-center justify-between">
         {/* Brand Logo & Emblem */}
-        <Link href="/" className="flex items-center gap-3.5 group">
-          <div className="w-8 h-8 md:w-9 md:h-9 transition-transform duration-500 group-hover:scale-105 flex items-center justify-center">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-colors duration-300">
-              <path d="M16 3C9.37258 3 4 8.37258 4 15V29H28V15C28 8.37258 22.6274 3 16 3Z" stroke={!scrolled ? '#F6F3EF' : '#0C0D0D'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M16 9C12.134 9 9 12.134 9 16V29H23V16C23 12.134 19.866 9 16 9Z" stroke="#8C8275" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+        <Link href="/" className="flex items-center gap-2.5 md:gap-3.5 group">
+          <div className="relative w-6 h-6 md:w-9 md:h-9 shrink-0 transition-transform duration-500 group-hover:scale-105">
+            <Image
+              src="/images/emblem-bella.png"
+              alt="Bella Wellness Emblem"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
-          <div className="flex flex-col">
-            <span className={`font-serif text-xl md:text-2xl font-light tracking-widest uppercase leading-none transition-colors duration-300 ${!scrolled ? 'text-[#F6F3EF]' : 'text-[#0C0D0D]'}`}>
-              BELLA
-            </span>
-            <span className={`text-[9px] tracking-[0.3em] uppercase font-sans font-medium mt-1 transition-colors duration-300 ${!scrolled ? 'text-[#8C8275]' : 'text-[#8C8275]'}`}>
+          <div className="flex flex-col justify-center">
+            <div className="relative h-4 w-20 md:h-6 md:w-28">
+              <Image
+                src="/images/word-bella.png"
+                alt="BELLA"
+                fill
+                className="object-contain object-left"
+                priority
+              />
+            </div>
+            <span className="text-[8px] md:text-[9px] tracking-[0.3em] uppercase font-sans font-medium text-[#8C8275] mt-0.5">
               WELLNESS
             </span>
           </div>
@@ -73,8 +79,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-xs tracking-[0.25em] uppercase transition-colors duration-300 font-sans ${
                   isActive
-                    ? (!scrolled ? 'text-white font-bold border-b-2 border-[#8C8275] pb-0.5' : 'text-[#8C8275] font-bold border-b-2 border-[#8C8275] pb-0.5')
-                    : (!scrolled ? 'text-white/85 hover:text-white font-medium' : 'text-[#0C0D0D]/80 hover:text-[#8C8275]')
+                    ? 'text-[#8C8275] font-bold border-b-2 border-[#8C8275] pb-0.5'
+                    : 'text-[#0C0D0D]/80 hover:text-[#8C8275] font-medium'
                 }`}
               >
                 {link.name}
@@ -87,15 +93,22 @@ export default function Navbar() {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle navigation menu"
-          className={`md:hidden p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors rounded-full ${!scrolled ? 'text-white hover:text-white/80 hover:bg-white/10' : 'text-[#0C0D0D] hover:text-[#8C8275] hover:bg-black/5'}`}
+          className="md:hidden p-3 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors rounded-full text-[#0C0D0D] hover:text-[#8C8275] hover:bg-black/5"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Menu — full-page takeover below the header */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[72px] bg-[#F6F3EF] z-40 flex flex-col px-8 py-12 space-y-8 animate-fadeIn border-t border-black/5">
+        <div
+          className="md:hidden fixed top-[72px] left-0 right-0 h-[calc(100dvh-72px)] bg-[#F6F3EF] z-40 flex flex-col px-8 py-12 space-y-8 border-t border-black/5"
+          style={{
+            backgroundImage: `url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48ZyBzdHJva2U9IiM4QjdFNjgiIHN0cm9rZS13aWR0aD0iMS4wIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjE0Ij48cGF0aCBkPSJNLTIwIDIwIFEgMjAgMCwgNjAgNDAgVCAxMDAgMjAiLz48cGF0aCBkPSJNLTIwIDQwIFEgMjAgMjAsIDYwIDYwIFQgMDAgNDAiLz48cGF0aCBkPSJNLTIwIDYwIFEgMjAgNDAsIDYwIDgwIFQgMDAgNjAiLz48cGF0aCBkPSJNMCAtMjAgUSA0MCAyMCwgMjAgNjAgVCA0MCAxMDAiLz48cGF0aCBkPSJNMjAgLTIwIFEgNjAgMjAsIDQwIDYwIFQgNjAgMDAiLz48cGF0aCBkPSJNNDAgLTIwIFEgODAgMjAsIDYwIDYwIFQgODAgMDAiLz48L2c+PC9zdmc+")`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '80px 80px',
+          }}
+        >
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -110,9 +123,6 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <div className="pt-12 border-t border-black/10 mt-auto text-xs text-[#0C0D0D]/60 font-sans tracking-[0.2em] uppercase">
-            Ohana Hills &bull; Beirut
-          </div>
         </div>
       )}
     </header>
